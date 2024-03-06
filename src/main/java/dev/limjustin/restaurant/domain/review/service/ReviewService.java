@@ -5,6 +5,7 @@ import dev.limjustin.restaurant.domain.review.dto.ReviewRequest;
 import dev.limjustin.restaurant.domain.review.dto.ReviewResponse;
 import dev.limjustin.restaurant.domain.review.entity.Review;
 import dev.limjustin.restaurant.domain.review.entity.ReviewRepository;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -29,5 +30,11 @@ public class ReviewService {
             reviews.add(ReviewConverter.toDto(review));
 
         return reviews;
+    }
+
+    public ReviewResponse.ViewDto findById(Long reviewId) {
+        Review review = reviewRepository.findById(reviewId)
+                .orElseThrow(() -> new EntityNotFoundException("Entity Not Found Exception"));
+        return ReviewConverter.toDto(review);
     }
 }
