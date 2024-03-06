@@ -13,7 +13,7 @@ public enum Keyword {
     SPECIAL_DAY("특별한 날 가기 좋아요 🎉"),
     LARGE_PLACE("매장이 넓어요 👀"),
     NICE_VIEW("뷰가 좋아요 🖼️"),
-    COZY("아늑해요 ☺️"),
+    COZY("아늑해요 😼"),
     FAST("음식이 빨리 나와요 ⏰"),
     HANDSOME("쉐프님이 잘생겼어요 😜");
 
