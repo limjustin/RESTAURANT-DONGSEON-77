@@ -26,12 +26,14 @@ public class Review {
     @Enumerated(EnumType.STRING)
     private Rating rating;  // 별점
     private String comment;  // 내용
+
+    @Enumerated(EnumType.STRING)
     private List<Keyword> keywords;  // 키워드
 
     @Builder
-    public Review(String writer, LocalDate date, String imageLink, Rating rating, String comment, List<Keyword> keywords) {
+    public Review(String writer, String imageLink, Rating rating, String comment, List<Keyword> keywords) {
         this.writer = writer;
-        this.date = date;
+        this.date = LocalDate.now();
         this.imageLink = imageLink;
         this.rating = rating;
         this.comment = comment;
