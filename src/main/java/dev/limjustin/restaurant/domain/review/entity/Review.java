@@ -25,13 +25,15 @@ public class Review {
 
     @Enumerated(EnumType.STRING)
     private Rating rating;  // 별점
+
+    @Column(length = 1000)
     private String comment;  // 내용
 
-    @Enumerated(EnumType.STRING)
-    private List<Keyword> keywords;  // 키워드
+    @ElementCollection(fetch = FetchType.LAZY)
+    private List<String> keywords;  // 키워드
 
     @Builder
-    public Review(String writer, String imageLink, Rating rating, String comment, List<Keyword> keywords) {
+    public Review(String writer, String imageLink, Rating rating, String comment, List<String> keywords) {
         this.writer = writer;
         this.date = LocalDate.now();
         this.imageLink = imageLink;
